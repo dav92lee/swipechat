@@ -1,0 +1,217 @@
+*{
+	font-family: 'helvetica';
+}
+
+body{
+	margin-top: -1px;
+	margin-left: -1px;
+	background-color: #212121;
+}
+
+
+#message-form{
+	background-color: #595959;
+	z-index: 3;
+	position:fixed;
+	width:50%;
+	height: 40px;
+	float:left;
+}
+
+#message-form > form > #messageField{
+	background-color: #595959;
+	color: white;
+	width: 86%;
+	height: 40px;
+	border: 0;
+	margin:0;
+	padding:0;
+	margin-left: 4%;
+}
+
+#message-form > form > #message-submit_button{
+	float:right;
+	font-size: 10px;
+	font-weight: 100;
+	margin:0px;
+	width: 8%;
+	height: 40px;
+	background:#3490ef; 
+	border:0 none;
+	color: white;
+	cursor:pointer;
+}
+
+#message-form > form > input[type=text]:focus, textarea:focus{
+	outline-width: 0;
+}
+
+  /***********************/
+ /*      left view      */
+/***********************/
+
+#left-view{
+	float:left;
+	position:absolute;
+	width:50%;
+	padding-top: 39px;
+	height: auto;
+
+	background-size: cover;
+	color: white;
+	
+	text-transform: capitalize;
+	font-weight: 300;
+}
+
+/* landing view */
+
+#left-view > #swap_button{
+	padding-left: 39px;
+	font-size: 12px;
+}
+
+#left-view > #swap_button:hover{
+	cursor:pointer;
+	color: #3490ef;
+}
+
+#left-view > #form_left{
+	margin-top: 38%;
+}
+
+#left-view > #form_left > #join-chat_form{
+	display:none;
+}
+
+#left-view > * > form > #nicknameField{
+	text-align: center;
+	font-size: 20px;
+	padding: 15px;
+	font-weight: 300;
+	background-color:  #212121;
+	border: 2px solid;
+	border-color: white;
+	color: white;
+}
+
+#left-view > * > form > #nicknameField2{
+	text-align: center;
+	font-size: 20px;
+	padding-top:15px;
+	padding-bottom: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
+	font-weight: 300;
+	background-color:  #212121;
+	border: 2px solid;
+	border-color: white;
+	color: white;
+}
+
+#left-view > * > form > #roomnameField2{
+	text-align: center;
+	font-size: 20px;
+	padding-top:15px;
+	padding-bottom: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
+	font-weight: 300;
+	background-color:  #212121;
+	border: 2px solid;
+	border-color: white;
+	color: white;
+}
+
+#left-view > * > form > #submit-button{
+	font-size: 14px;
+	font-weight: 100;
+	margin-top: 15px;
+	padding:10px 60px; 
+	background:#3490ef; 
+	border:0 none;
+	color: white;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/* chatroom view */
+
+#left-view > #message_div > #message_ul {
+	list-style-type: none;
+	padding:0;
+	margin:0;
+}
+
+#left-view > #message_div > #message_ul > #message_li{
+	height: 80px;
+	width: 100%;
+	border-bottom: 1px;
+	border: solid 1px;
+	border-color: white;
+	padding-left: 20px;
+}
+
+
+#left-view > #message_div > #message_ul > #message_li > #current_message_info_wrapper > *{
+	display:inline-block;
+	margin-top: 10px;
+	color: #3490ef;
+	font-style:italic;
+}
+
+#left-view > #message_div > #message_ul > #message_li > #current_message_info_wrapper > #message_nickname{
+	font-size: 10px;
+}
+
+#left-view > #message_div > #message_ul > #message_li > #current_message_info_wrapper > #message_time{
+	margin-left: 10px;
+	font-size: 10px;
+}
+
+#left-view > #message_div > #message_ul > #message_li > #message_body{
+	display:block;
+	font-size: 10px;
+	line-height: 14px;
+	margin-top: 1px;
+	width: 90%;
+}
+
+  /***********************/
+ /*      right view     */
+/***********************/
+
+
+
+#right-view{
+	float:right;
+	position: fixed;
+	display: block;
+	margin-left:50%;
+	width: 50%;
+	height:100%;
+	text-align:center;
+	background-color: white;
+	color: #656565;
+}
+
+#right-view > #logo {
+	margin-top: 48%;
+
+	font-weight: 100;
+	font-size: 30px;
+
+	letter-spacing: 4px;
+}
+
+#right-view > #subtext {
+	margin-top: 5px;
+	font-size: 11px;
+	letter-spacing: 1px;
+	font-weight: 100;
+}
+
+#right-view > #logo > #thick-logo{
+	font-weight: 900;
+}

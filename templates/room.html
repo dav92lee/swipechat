@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="roomName" content="{{roomName}}">
+	<script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type='text/javascript' src='/javascripts/room.js'></script>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/app.css">
+	<title> Room {{roomName}} </title>
+</head>
+<body>
+	<div id="message-form">
+		<form method="post" action="/{{roomName}}/messages" id="messageForm">
+			<input type="text" name="message" id="messageField" value="Type Message Here">
+			<input type="hidden" name="nickname" id="nicknameField" value="{{nickName}}">
+			<input type="submit" id="message-submit_button" value="Send">
+		</form>
+	</div>
+	<div id="left-view">
+		<div id="message_div">
+	    	<ul id="message_ul">
+	    	</ul>
+	    </div>
+	</div>
+	<div id="right-view">
+		<div id="logo"> swipe<span id="thick-logo">chat</span></div>
+		<div id="subtext"> Room: {{roomName}} | User: {{nickName}} </div>
+	</div>
+</body>
+</html>
