@@ -1,8 +1,10 @@
 var express = require('express'),
 	app = express(),
 	colors = require('colors'),
+	http = require('http'),
 	anyDB = require('any-db'),
-	engines = require('consolidate');
+	engines = require('consolidate'),
+	server = http.createServer(app);
 
 var conn = anyDB.createConnection('sqlite3://chatroom.db');
 
@@ -16,6 +18,45 @@ app.use('/stylesheets', express.static(__dirname + '/stylesheets'));
 app.listen(8080, function(){
 	console.log('- SERVER LISTENING ON PORT 8080'.grey);
 });
+
+// io.sockets.on('connection', function(socket){
+//     // clients emit this when they join new rooms
+//     socket.on('join', function(roomName, nickname, callback){
+//         socket.join(roomName); // this is a socket.io method
+//         socket.nickname = nickname; // yay JavaScript! see below
+
+//         // get a list of messages currently in the room, then send it back
+//         var messages = [...];
+//         callback(messages);
+//     });
+
+//     // this gets emitted if a user changes their nickname
+//     socket.on('nickname', function(nickname){
+//         socket.nickname = nickname;
+//     });
+
+//     // the client emits this when they want to send a message
+//     socket.on('message', function(message){
+//         // process an incoming message (don't forget to broadcast it to everyone!)
+
+//         // note that you somehow need to determine what room this is in
+//         // io.sockets.manager.roomClients[socket.id] may be of some help, or you
+//         // could consider adding another custom property to the socket object.
+
+//         // Note that io.sockets.manager.roomClients[socket.id] is a hash mapping
+//         // from room name to true for all rooms that the socket is in, that room
+//         // names are prefixed with a "/", and that every socket is in a global room
+//         // with name '' (the empty string). Thus, to get the room name, you might
+//         // have to use something like this:
+//         var rooms = Object.keys(io.sockets.manager.roomClients[socket.id]);
+//         var roomName = (rooms[0] == '') ? rooms[1].substr(1) : rooms[0].substr(1);
+//     });
+
+//     // the client disconnected/closed their browser window
+//     socket.on('disconnect', function(){
+//         // Leave the room!
+//     });
+// });
 
 app.get('/checkRoom/:roomName.json', function(request, response){
 	console.log('- checkroom request', request.method.underline, request.url.blue);

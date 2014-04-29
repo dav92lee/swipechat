@@ -8,7 +8,6 @@ function meta(name){
 	return '';
 }
 
-
 window.addEventListener('load', function(){
 	var newChat_Form = document.getElementById('new-chat_form');
 	var joinChat_Form = document.getElementById('join-chat_form');
@@ -35,12 +34,12 @@ window.addEventListener('load', function(){
 		}
 	});
 
+
 	$('#nicknameField').bind('input', function(){
 		newChat_Form.action = "/" + newRoom_Id + "/" + $(this).val();
 	});
 
 	$('#nicknameField2').bind('input', function(){
-		console.log("HEY");
 		joinChat_Form.action = "/" + $('#roomnameField2').val() + "/" + $(this).val();
 	});
 

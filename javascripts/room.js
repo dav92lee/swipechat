@@ -3,15 +3,32 @@
     Client Side Javascript for the room
 */
 
-
+// var socket = io.connect();
 var id_dictionary = {};
 
 
 window.addEventListener('load', function(){
     var messageForm = document.getElementById('messageForm');
     messageForm.addEventListener('submit', sendMessage, false);
-    requestData();
-    var request_intervalId = window.setInterval(requestData, 5000);
+
+
+    // socket.on('message', function(nickname, message, time){
+    //     // display a newly-arrived message
+    // });
+
+    // // handle room membership changes
+    // socket.on('membershipChanged', function(members){
+    //     // display the new member list
+    // });
+
+    // // get the nickname
+    // var nickname = prompt('Enter a nickname:');
+
+    // // join the room
+    // socket.emit('join', meta('roomName'), nickname, function(messages){
+    //     // process the list of messages the server sent back
+    // });
+
 }, false);
 
 function sendMessage(e) {
@@ -23,27 +40,30 @@ function sendMessage(e) {
 
     // create a FormData object from our form
     var fd = new FormData(document.getElementById('messageForm'));
+    socket.emit('message', meta(fd), nickname, function(messages){
+        // process the list of messages the server sent back
+    });
 
     // send it to the server
-    var request = new XMLHttpRequest();
-    request.open('POST', '/' + roomName + '/messages', true);
-    request.send(fd);
+    // var request = new XMLHttpRequest();
+    // request.open('POST', '/' + roomName + '/messages', true);
+    // request.send(fd);
 
-    requestData();
+    // requestData();
 };
 
-function requestData(){
-    var request = new XMLHttpRequest();
-    var meta = document.querySelector('meta[name=roomName]');
-    var roomName = meta.content;
+// function requestData(){
+//     var request = new XMLHttpRequest();
+//     var meta = document.querySelector('meta[name=roomName]');
+//     var roomName = meta.content;
 
-    request.open("GET", "/" + roomName + "/messages.json", false);
-    request.send();
-    //parsing JSON
-    var content = request.responseText;
-    data = JSON.parse(content);
-    append_messages(data);
-};
+//     request.open("GET", "/" + roomName + "/messages.json", false);
+//     request.send();
+//     //parsing JSON
+//     var content = request.responseText;
+//     data = JSON.parse(content);
+//     append_messages(data);
+// };
 
 function append_messages(data){
 	var message_list = document.getElementById("message_ul");
